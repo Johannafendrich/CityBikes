@@ -3,6 +3,9 @@ import { createElement } from './lib/dom';
 import { createTitle } from './components/title';
 import img from './assets/bike-easy-logo.png';
 import { createSearch } from './components/search';
+import { createSearchResults } from './components/bikes';
+
+const allBikes = ['London', 'Paris', 'Cologne', 'Franfurt', 'Basel'];
 
 export function app() {
   const header = createElement('header', {
@@ -21,6 +24,20 @@ export function app() {
   header.appendChild(logo);
   header.appendChild(title);
   main.appendChild(searchElement);
+  const searchResults = createElement('div', {});
+  main.appendChild(searchResults);
+
+  searchElement.addEventListener('input', event => {
+    searchResults.innerHTML = ''; // clear search results
+
+    const searchValue = event.target.value;
+    const filteredbikes = allBikes.filter(bike => {
+      return bike.startsWith(searchValue);
+    });
+
+    const bikesElement = createSearchResults(filteredbikes);
+    searchResults.appendChild(bikesElement);
+  });
 
   return [header, main];
 }

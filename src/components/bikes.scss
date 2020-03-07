@@ -1,0 +1,29 @@
+@use "../theme";
+
+.bikes {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bike {
+  font-size: 0.8rem;
+  text-align: center;
+  color: theme.$primary-color;
+  margin: 4px;
+  border: 1px solid theme.$tertiary-color;
+  padding: 4px;
+  border-radius: 0.25rem;
+  background: theme.$tertiary-color;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover {
+    background: theme.$secondary-color;
+  }
+
+  &:active {
+    background: theme.$tertiary-color;
+  }
+}

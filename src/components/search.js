@@ -5,7 +5,7 @@ export function createSearch() {
   const searchElement = createElement('input', {
     className: 'search',
     type: 'search',
-    placeholder: 'where are you going next?'
+    placeholder: 'find a bike'
   });
   return searchElement;
 }
