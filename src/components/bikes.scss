@@ -20,7 +20,7 @@
   cursor: pointer;
 
   &:hover {
-    background: theme.$secondary-color;
+    background-color: lighten(theme.$secondary-color, 5%);
   }
 
   &:active {

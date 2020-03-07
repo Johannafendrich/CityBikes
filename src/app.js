@@ -18,6 +18,7 @@ export function app() {
     className: 'logo',
     src: img
   });
+
   const title = createTitle('CityBikes');
 
   const searchElement = createSearch();
@@ -30,9 +31,9 @@ export function app() {
   searchElement.addEventListener('input', event => {
     searchResults.innerHTML = ''; // clear search results
 
-    const searchValue = event.target.value;
+    const searchValue = event.target.value.toLowerCase();
     const filteredbikes = allBikes.filter(bike => {
-      return bike.startsWith(searchValue);
+      return bike.toLowerCase().startsWith(searchValue);
     });
 
     const bikesElement = createSearchResults(filteredbikes);

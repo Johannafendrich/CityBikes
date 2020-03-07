@@ -9,6 +9,6 @@
   border: 1px solid theme.$secondary-color;
 
   &::placeholder {
-    color: lighten(theme.$tertiary-color, 10%);
+    color: lighten(theme.$tertiary-color, 15%);
   }
 }
