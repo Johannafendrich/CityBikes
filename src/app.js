@@ -1,6 +1,7 @@
 import './app.scss';
 import { createElement } from './lib/dom';
-import img from './assets/bike-easy-logo.png';
+import logoImage from './assets/bike-easy-logo.png';
+import imgBike from './assets/Bike.jpg';
 import { createSearch } from './components/search';
 import { createSearchResults } from './components/bikes';
 
@@ -15,12 +16,16 @@ export function app() {
   });
   const logo = createElement('img', {
     className: 'logo',
-    src: img
+    src: logoImage
   });
+  const img = createElement('img', {
+    className: 'backgroundImage',
+    src: imgBike
+  });
+  header.appendChild(logo);
+  main.appendChild(img);
 
   const searchElement = createSearch();
-  header.appendChild(logo);
-
   main.appendChild(searchElement);
   const searchResults = createElement('div', {});
   main.appendChild(searchResults);
