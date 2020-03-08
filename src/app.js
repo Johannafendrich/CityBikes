@@ -1,6 +1,5 @@
 import './app.scss';
 import { createElement } from './lib/dom';
-import { createTitle } from './components/title';
 import img from './assets/bike-easy-logo.png';
 import { createSearch } from './components/search';
 import { createSearchResults } from './components/bikes';
@@ -19,17 +18,15 @@ export function app() {
     src: img
   });
 
-  const title = createTitle('CityBikes');
-
   const searchElement = createSearch();
   header.appendChild(logo);
-  header.appendChild(title);
+
   main.appendChild(searchElement);
   const searchResults = createElement('div', {});
   main.appendChild(searchResults);
 
   searchElement.addEventListener('input', event => {
-    searchResults.innerHTML = ''; // clear search results
+    searchResults.innerHTML = '';
 
     const searchValue = event.target.value.toLowerCase();
     const filteredBikes = allBikes.filter(bike => {
