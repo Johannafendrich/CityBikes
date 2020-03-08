@@ -1,18 +1,15 @@
 import './bikes.scss';
 import { createElement } from '../lib/dom';
 
-export function createSearchResults(props) {
+export function createSearchResults(filteredBikes) {
   const container = createElement('div', {
     className: 'bikes'
   });
 
-  props.forEach(item => {
+  filteredBikes.forEach(item => {
     const element = createElement('div', {
       innerText: item,
       className: 'bike'
-    });
-    element.addEventListener('click', () => {
-      props.onSearchResultClick(item);
     });
     container.appendChild(element);
   });
