@@ -1,7 +1,7 @@
 import './app.scss';
 import { createElement } from './lib/dom';
 import logoImage from './assets/bike-easy-logo.png';
-import imgBike from './assets/bike.jpg';
+import imgBike from './assets/Bike.jpg';
 import { createSearch } from './components/search';
 import { createSearchResults } from './components/bikes';
 
