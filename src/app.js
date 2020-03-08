@@ -32,11 +32,11 @@ export function app() {
     searchResults.innerHTML = ''; // clear search results
 
     const searchValue = event.target.value.toLowerCase();
-    const filteredbikes = allBikes.filter(bike => {
+    const filteredBikes = allBikes.filter(bike => {
       return bike.toLowerCase().startsWith(searchValue);
     });
 
-    const bikesElement = createSearchResults(filteredbikes);
+    const bikesElement = createSearchResults(filteredBikes);
     searchResults.appendChild(bikesElement);
   });
 
