@@ -4,8 +4,7 @@ import logoImage from './assets/bike-easy-logo.png';
 import imgBike from './assets/Bike.jpg';
 import { createSearch } from './components/search';
 import { createSearchResults } from './components/bikes';
-
-const allBikes = ['London', 'Paris', 'Cologne', 'Franfurt', 'Basel'];
+import { getCities } from './lib/bikeInfos';
 
 export function app() {
   const header = createElement('header', {
@@ -30,16 +29,20 @@ export function app() {
   const searchResults = createElement('div', {});
   main.appendChild(searchResults);
 
-  searchElement.addEventListener('input', event => {
-    searchResults.innerHTML = '';
-
-    const searchValue = event.target.value.toLowerCase();
-    const filteredBikes = allBikes.filter(bike => {
-      return bike.toLowerCase().startsWith(searchValue);
+  let bikeCities = [];
+  async function setBikeCities() {
+    bikeCities = await getCities();
+  }
+  setBikeCities().then(() => {
+    searchElement.addEventListener('input', event => {
+      searchResults.innerHTML = '';
+      const searchValue = event.target.value.toLowerCase();
+      const filteredBikes = bikeCities.filter(bike => {
+        return bike.toLowerCase().startsWith(searchValue);
+      });
+      const bikesElement = createSearchResults(filteredBikes);
+      searchResults.appendChild(bikesElement, bikeCities);
     });
-
-    const bikesElement = createSearchResults(filteredBikes);
-    searchResults.appendChild(bikesElement);
   });
 
   return [header, main];
