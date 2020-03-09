@@ -22,6 +22,10 @@ export function app() {
     className: 'backgroundImage',
     src: imgBike
   });
+  const footer = createElement('footer', {
+    className: 'footer'
+  });
+
   header.appendChild(logo);
   main.appendChild(img);
 
@@ -42,5 +46,5 @@ export function app() {
     searchResults.appendChild(bikesElement);
   });
 
-  return [header, main];
+  return [header, main, footer];
 }
